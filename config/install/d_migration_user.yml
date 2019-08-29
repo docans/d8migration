@@ -1,0 +1,53 @@
+langcode: en
+dependencies: {  }
+id: d_migration_user
+label: 'Migrate users from the csv file'
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+#migration_group: d_migration
+source:
+  plugin: csv
+  # Full path to the file.
+  path: modules/custom/dmigration/source/d_user_list.csv
+  header_row_count: 1
+  ids:
+    uid:
+      type: integer
+process:
+  mail: email
+  init: email
+  field_user_first_name: first_name
+  field_user_last_name: last_name
+  field_user_full_name: full_name
+  name:
+    - plugin: machine_name
+      source: username
+    - plugin: make_unique_entity_field
+      entity_type: user
+      field: name
+      postfix: _
+  pass:
+    plugin: callback
+    callable: md5
+    source: password
+  status: status
+  roles:
+    - plugin: skip_on_empty
+      method: process
+      source: role
+    - plugin: explode
+      delimiter: ','
+    - plugin: callback
+      callable: trim
+    - plugin: static_map
+      map:
+        'figher': figher
+        'killer': killer
+        'queen': queen
+        'spy': spy
+      default_value: null
+destination:
+  plugin: 'entity:user'
+migration_dependencies: null

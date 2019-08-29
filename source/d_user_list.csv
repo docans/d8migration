@@ -1,0 +1,5 @@
+﻿uid,full_name,first_name,last_name,username,password,phone,org,email,role,status
+1,John Snow,John,Snow,johnsnow,johnsnow,1234567890,nightwatch,johnsnow@got.com,figher,1
+2,Arya Stark,Arya,Stark,aryastark,aryastark,2345678901,winterfell,aryastark@got.com,killer,1
+3,Sansa Stark,Sansa,Stark,sansastark,sansastark,3456789012,winterfell,sansastart@got.com,queen,1
+4,Little Finger,Little,Finger,littlefinger,littlefinger,4567890123,veilwatch,littlefinger@got.com,spy,0
