@@ -1,19 +1,12 @@
-langcode: en
-dependencies: {  }
-id: d_migration_user
+id: dmigration_user
 label: 'Migrate users from the csv file'
-class: null
-field_plugin_method: null
-cck_plugin_method: null
-migration_tags: null
-#migration_group: d_migration
 source:
   plugin: csv
   # Full path to the file.
   path: modules/custom/dmigration/source/d_user_list.csv
   header_row_count: 1
   ids:
-    uid:
+    duser_id:
       type: integer
 process:
   mail: email
@@ -33,6 +26,14 @@ process:
     callable: md5
     source: password
   status: status
+  created:
+    plugin: format_date
+    source: member_since
+    from_format: 'F j, Y'
+    to_format: 'U'
+    changed: '@created'
+    access: '@created'
+    login: '@created'
   roles:
     - plugin: skip_on_empty
       method: process
