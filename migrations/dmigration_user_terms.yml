@@ -1,0 +1,20 @@
+id: dmigration_user_terms
+label: 'Migrate users terms from the csv file'
+source:
+  plugin: csv
+  # Full path to the file.
+  path: modules/custom/dmigration/source/d_user_terms.csv
+  header_row_count: 0
+  ids:
+    - duser_term_id
+process:
+#  tid: tid
+  vid:
+    plugin: default_value
+    default_value: vocab_org
+  name: term_name
+#  weight: weight
+  'description/value': term_description
+#  'description/format': format
+destination:
+  plugin: entity:taxonomy_term

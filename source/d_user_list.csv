@@ -1,5 +1,5 @@
 ﻿duser_id,full_name,first_name,last_name,username,password,phone,org,email,role,status,member_since
-1,John Snow,John,Snow,johnsnow,johnsnow,1234567890,nightwatch,johnsnow@got.com,figher,1,"January 1, 2011"
-2,Arya Stark,Arya,Stark,aryastark,aryastark,2345678901,winterfell,aryastark@got.com,killer,1,"January 1, 2011"
-3,Sansa Stark,Sansa,Stark,sansastark,sansastark,3456789012,winterfell,sansastart@got.com,queen,1,"January 1, 2011"
-4,Little Finger,Little,Finger,littlefinger,littlefinger,4567890123,veilwatch,littlefinger@got.com,spy,0,"January 1, 2011"
+11,John Snow,John,Snow,johnsnow,johnsnow,1234567890,nightwatch,johnsnow@got.com,fighter,1,2014-01-05T16:49:50
+12,Arya Stark,Arya,Stark,aryastark,aryastark,2345678901,winterfell,aryastark@got.com,killer,1,2014-01-05T16:49:50
+13,Sansa Stark,Sansa,Stark,sansastark,sansastark,3456789012,winterfell,sansastart@got.com,queen,1,2014-01-05T16:49:50
+14,Little Finger,Little,Finger,littlefinger,littlefinger,4567890123,veilwatch,littlefinger@got.com,spy,0,2014-01-05T16:49:50

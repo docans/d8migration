@@ -4,16 +4,21 @@ source:
   plugin: csv
   # Full path to the file.
   path: modules/custom/dmigration/source/d_user_list.csv
-  header_row_count: 1
+  header_row_count: 0
   ids:
-    duser_id:
-      type: integer
+    - duser_id
 process:
   mail: email
   init: email
   field_user_first_name: first_name
   field_user_last_name: last_name
   field_user_full_name: full_name
+  # Taxonomy field below
+  field_user_tax_org:
+    plugin: migration_lookup
+    source: org
+    migration: dmigration_user_terms
+    no_stub: true
   name:
     - plugin: machine_name
       source: username
@@ -35,20 +40,14 @@ process:
     access: '@created'
     login: '@created'
   roles:
-    - plugin: skip_on_empty
-      method: process
-      source: role
-    - plugin: explode
-      delimiter: ','
-    - plugin: callback
-      callable: trim
     - plugin: static_map
+      source: role
       map:
-        'figher': figher
-        'killer': killer
-        'queen': queen
-        'spy': spy
-      default_value: null
+        'fighter': role_figther
+        'killer': role_killer
+        'queen': role_queen
+        'spy': role_spy
 destination:
   plugin: 'entity:user'
+  md5_passwords: true
 migration_dependencies: null
